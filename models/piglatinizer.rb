@@ -8,7 +8,7 @@ class PigLatinizer
     def piglatinize(pl)
         # @one = one
         pl.split().map do |one|
-           binding.pry
+        #    binding.pry
             guillotine(one).join('')
         end
     end
@@ -21,7 +21,7 @@ class PigLatinizer
             if vowel_start?(one)
                 one + "ay"
             else
-                guillotine
+                guillotine(one)
             end
         end
     end
