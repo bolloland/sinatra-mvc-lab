@@ -1,27 +1,29 @@
 class PigLatinizer
     # all your ruby methods will be in here to PLatinize
 
-    attr_accessor :pl, #:one
+    attr_accessor :pl #:one
 
     #split into an array of strings, guillotine each string, then join back together
 
     def piglatinize(pl)
         # @one = one
-        pl.split().map do |one|
-        #    binding.pry
-            guillotine(one).join('')
+        #ebinding.pry
+        latinized_arr = pl.split().map do |one|
+            #binding.pry
+            guillotine(one)
         end
+        latinized_arr.join(" ")
     end
     
     def guillotine(one)
         if vowel_start?(one)
             one + "way"
         else
-            consonant_shift(one)
-            if vowel_start?(one)
-                one + "ay"
+            new_one = consonant_shift(one)
+            if vowel_start?(new_one)
+                new_one + "ay"
             else
-                guillotine(one)
+                guillotine(new_one)
             end
         end
     end
