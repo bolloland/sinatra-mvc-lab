@@ -5,15 +5,15 @@ class PigLatinizer
 
     #split into an array of strings, guillotine each string, then join back together
 
-    def initialize(pl)
+    def piglatinize(pl)
         # @one = one
         pl.split().map do |one|
+            binding.pry
             guillotine(one).join('')
         end
     end
     
-    def guillotine
-        binding.pry
+    def guillotine(one)
         if vowel_start?(one)
             one + "way"
         else
