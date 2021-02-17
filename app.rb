@@ -1,5 +1,5 @@
 require_relative 'config/environment'
-# require_relative 'models/piglatinizer.rb'
+require_relative 'models/piglatinizer.rb'
 
 class App < Sinatra::Base
 
@@ -8,10 +8,10 @@ class App < Sinatra::Base
     end
 
     post '/piglatinize' do
-     puts params    
-     @piglatin = PigLatinizer.new.piglatinize(params[:prepig])
+        
+     puts params  
+     @piglatin = PigLatinizer.new.piglatinize(params["prepig"])
      
-     binding.pry
      erb :display_results
     end
     
